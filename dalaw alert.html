@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dalaw-Alert</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Custom Colors -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            neonpink: '#ff2fb3',
+            medteal: '#1de9b6',
+          },
+          animation: {
+            pulseSlow: 'pulse 2s infinite',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-zinc-900 text-white min-h-screen flex items-center justify-center">
+
+  <div class="w-full max-w-md p-6 space-y-6">
+
+    <!-- HEADER -->
+    <header class="text-center space-y-2">
+      <h1 class="text-3xl font-bold text-neonpink tracking-wide">
+        Dalaw-Alert
+      </h1>
+      <p class="text-sm text-zinc-300 italic">
+        Dahil ang "I'm sorry" mo, hindi pampawala ng sakit ng puson ko.
+      </p>
+    </header>
+
+    <!-- BIOMETRIC DASHBOARD -->
+    <section class="bg-zinc-800 rounded-2xl p-6 shadow-lg text-center space-y-4">
+      <div class="relative w-40 h-40 mx-auto">
+        <div class="absolute inset-0 rounded-full border-8 border-medteal opacity-30"></div>
+        <div class="absolute inset-0 rounded-full border-8 border-neonpink border-t-transparent animate-spin"></div>
+        <div class="absolute inset-0 flex flex-col items-center justify-center">
+          <span class="text-sm text-zinc-400">Uterine Tension</span>
+          <span class="text-xl font-bold text-red-400">HIGH</span>
+        </div>
+      </div>
+
+      <p class="text-medteal text-lg font-semibold">
+        🌡️ Graphene Heat: 40°C
+      </p>
+    </section>
+
+    <!-- CONTROL CENTER -->
+    <section class="space-y-4">
+
+      <!-- SYSTEM ALERT -->
+      <button onclick="systemAlert()"
+        class="w-full py-4 rounded-xl font-bold tracking-wide
+               bg-red-600 shadow-lg shadow-red-500/50
+               animate-pulseSlow hover:scale-105 transition">
+        🚨 SYSTEM ALERT
+      </button>
+
+      <!-- MISSION BRIEF -->
+      <button onclick="missionBrief()"
+        class="w-full py-4 rounded-xl font-bold tracking-wide
+               bg-orange-500 shadow-lg shadow-orange-400/50
+               animate-pulseSlow hover:scale-105 transition">
+        📋 MISSION BRIEF
+      </button>
+
+    </section>
+
+    <!-- SCIENTIFIC FOOTER -->
+    <footer class="text-center text-xs text-zinc-400 pt-4 border-t border-zinc-700">
+      <p>
+        🔬 Science Task: 40°C Heat Therapy ≈ 400mg Ibuprofen
+      </p>
+      <p class="mt-1">
+        Powered by Graphene — 99% heat conductivity efficiency
+      </p>
+    </footer>
+
+  </div>
+
+  <!-- AI VOICE SCRIPTS -->
+  <script>
+    function speak(text) {
+      const msg = new SpeechSynthesisUtterance(text);
+      msg.rate = 1;
+      msg.pitch = 1;
+      msg.lang = 'en-US';
+      speechSynthesis.speak(msg);
+    }
+
+    function systemAlert() {
+      speak(
+        "Alert! Alert! System Alert for Benito. Detection of high tension and cramps confirmed. Dalaw Alert protocol is now active."
+      );
+    }
+
+    function missionBrief() {
+      speak(
+        "Recommendation. Buy Wintermelon Milk Tea, zero percent sugar, and proceed with caution."
+      );
+    }
+  </script>
+
+</body>
+</html>
